@@ -1,66 +1,88 @@
-.slider-container{
+body {
+    background: #44A08D;
+    background: -webkit-linear-gradient(to left, #44A08D, #093637);
+    background: linear-gradient(to left, #44A08D, #093637);
+    margin: 0px;
+    margin-right: 5px;
+}
+.slider-wrapper{
   height: 400px;
-  width:60%;
+  width: 60%;
   margin-left: 20%;
   margin-right: 20%;
   position: relative;
+  border: white 5px solid;
+  border-radius: 4px;
+  margin-top: 20px;
 }
-.slider{
-  list-style-type: none;
-  width:100%;
-  height:100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.slider-image{
+.slider-container {
   width:100%;
   height: 100%;
-  display:inline-block;
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
 }
-.controls{
-  text-align: center;
-  margin-top: 10px;
+.slider {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    position: absolute;
+    transition: left 1s;
 }
-.cotrol-buttons-container{
 
+.slider-image {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
 
+.controls {
+    text-align: center;
+    margin-top: 10px;
 }
-.bullets-container{
-  position: absolute;
-  bottom: 10px;
-  left:50%;
-  transform: translateX(-50%);
+
+.cotrol-buttons-container {}
+
+.bullets-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.bullet{
-  width:15px;
-  height: 15px;
-  background-color: white;
-  border-radius: 50%;
-  display:inline-block;
-  margin:5px;
+
+.bullet {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
 }
-.bullet.active{
-  background-color:black;
-  border:3px white solid;
-  width:9px;
-  height: 9px;
+
+.bullet.active {
+    background-color: black;
+    border: 3px white solid;
+    width: 9px;
+    height: 9px;
 }
-@media (max-width:1024px){
-  .slider-container{
-    height: 300px;
-    width:80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
+
+@media (max-width:1024px) {
+    .slider-wrapper {
+        height: 300px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
-@media (max-width:768px){
-  .slider-container{
-    height: 250px;
-    width:100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
+
+@media (max-width:768px) {
+    .slider-wrapper {
+        height: 250px;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border-width: 2px;
+    }
 }

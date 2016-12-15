@@ -12,21 +12,23 @@
 
 <body ng-app="sliderApp">
     <div ng-controller="mainController">
-        <div class="slider-container">
-            <div class="slider">
-                <div ng-repeat="image in images" ng-show="active === $index" ng-style="{'background-image':'url(./images/{{image}})'}" class="slider-image">
+        <div class="slider-wrapper">
+            <div class="slider-container">
+                <div class="slider" ng-style="{'left': leftPos + '%'}">
+                    <div ng-repeat="image in images"  ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image">
+                    </div>
                 </div>
-            </div>
-            <div class="bullets-container">
-                <div class="bullet" ng-repeat="image in images" ng-class="{'active': active === $index }" ng-click="scrollTo($index)">
+                <div class="bullets-container">
+                    <div class="bullet" ng-repeat="image in images" ng-class="{'active': isActive($index) }" ng-click="scrollTo($index)">
 
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="controls">
             <div class="control-buttons-container">
-                <button ng-click="scrollLeft()">Lewo</button>
-                <button ng-click="scrollRight()">Prawo</button>
+          
             </div>
 
         </div>
