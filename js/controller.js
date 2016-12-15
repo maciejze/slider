@@ -30,23 +30,23 @@ app.controller("mainController", function($scope) {
             link: function(scope, element, attrs) {
                 var touchStartPos = 0;
                 var touchCurrentPos = 0;
-                var sliderStartingPos = 0;
                 var sliderElement = $(element);
                 sliderElement.on('touchstart', function(event) {
                     touchStartPos = event.originalEvent.touches[0].pageX;
-                    sliderStartingPos = angular.copy(scope.slider.leftPost);
 
                 })
                 sliderElement.on('touchmove', function(event) {
                     touchCurrentPos = event.originalEvent.touches[0].pageX;
-                    scope.slider.leftPos += (touchCurrentPos - touchStartPos)/sliderElement[0].clientWidth*10;
+                    scope.slider.leftPos += ((touchCurrentPos - touchStartPos)/sliderElement[0].clientWidth*15);
                     scope.$apply();
                 })
                 sliderElement.on('touchend', function(event) {
 
-                    // * 100;
-
-                    console.log(scope.slider.leftPos);
+                    if(scope.slider.leftPos.toFixed()%100 < -20){
+                      scope.slider.leftPos -= (scope.slider.leftPos % 100);
+                      console.log(scope.slider.leftPos);
+                      scope.$apply();
+                    }
                 })
             }
         }
