@@ -43,7 +43,10 @@ body {
     margin-top: 10px;
 }
 
-.cotrol-buttons-container {}
+.cotrol-buttons-container {
+  color:white;
+  font-size: 20px;
+}
 
 .bullets-container {
     position: absolute;
