@@ -15,12 +15,15 @@ app.controller("mainController", function($scope, $interval) {
         },
         play: function(interval) {
             self = this;
+            if(interval === undefined) interval = 5000;
             self.interval = $interval(function() {
                 self.scrollRight()
             }, interval)
         },
         stop: function() {
-            $interval.cancel(this.interval);
+          self = this;
+            $interval.cancel(self.interval);
+            self.interval = undefined;
         },
         scrollTo: function(index) {
             this.leftPos = -100 * index;
@@ -35,8 +38,8 @@ app.controller("mainController", function($scope, $interval) {
     //Slider initialization
     var config = {
         images: ['photo1.jpeg', 'photo2.jpeg', 'photo3.jpeg', 'photo4.jpeg', 'photo5.jpeg'],
-        autoPlay: true,
-        interval: 6000
+        //autoPlay: true,
+        //interval: 2000
     }
     $scope.slider = new Slider(config);
 

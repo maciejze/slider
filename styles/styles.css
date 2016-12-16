@@ -108,7 +108,7 @@ body {
     z-index: 4;
 }
 
-.slider-nav-container:hover>.slider-nav, .slider-nav:hover{
+.slider-nav-container:hover>.slider-nav, .slider-nav:hover {
     visibility: visible;
 }
 
@@ -125,11 +125,56 @@ body {
 .slider-nav-container>.slider-nav>i.fa-chevron-right {
     right: 15px;
 }
+
 .slider-nav-container>.slider-nav>i.fa-chevron-left {
     left: 15px;
 }
 
+.control-buttons-wrapper {
+    position: relative;
+}
 
+.control-buttons-wrapper>button {
+    border: 2px white solid;
+    border-radius: 5px;
+    color: white;
+    background-color: transparent;
+    font-size: 20px;
+    padding: 10px 30px;
+    font-family: arial;
+    overflow: hidden;
+    position: relative;
+    cursor:pointer;
+}
+
+.control-buttons-wrapper>button::before {
+    content: "";
+    position: absolute;
+    left: -300px;
+    top: -50px;
+    width: 300px;
+    height: 300px;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    z-index: 5;
+    background: linear-gradient(to left, #FF4E50, #F9D423);
+    cursor:pointer;
+    transition: left 1.5s;
+}
+
+.control-buttons-wrapper>button:hover::before, .control-buttons-wrapper>button.active::before {
+    left:-100px;
+}
+.control-buttons-wrapper>button.active{
+  pointer-events: none;
+  cursor:crosshair;
+}
+
+
+.control-buttons-wrapper>button>span {
+    z-index: 10;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
 
 @media (max-width:1024px) {
     .slider-wrapper {
