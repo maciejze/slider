@@ -19,18 +19,20 @@
             <div class="slider-container">
 
                 <div class="slider" ng-style="{'left': slider.leftPos + '%'}">
-                    <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image" ng-swipe-right="scrollRight()">
+                    <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image" >
+                    </div>
+                    <div ng-style="{'background-image':'url(./images/' + slider.images[0] + ')'}"  class="slider-image">
                     </div>
                 </div>
                 <div class="bullets-container">
-                    <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': isActive($index) }" ng-click="scrollTo($index)">
+                    <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': slider.activeBullet($index) }" ng-click="slider.scrollTo($index)">
                     </div>
                 </div>
                 <div class="slider-nav-container">
-                    <div class="slider-nav right" ng-click="scrollRight()">
+                    <div class="slider-nav right" ng-click="slider.scrollRight()">
                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     </div>
-                    <div class="slider-nav left" ng-click="scrollLeft()">
+                    <div class="slider-nav left" ng-click="slider.scrollLeft()">
                         <i class="fa fa-chevron-left" aria-hidden="true"></i>
                     </div>
                 </div>
