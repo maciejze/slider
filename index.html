@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <script src="https://use.fontawesome.com/df74664aa7.js"></script>
     <script src="./js/angular.js" type="text/javascript"></script>
     <script src="./js/ngTouch.js" type="text/javascript"></script>
     <script src="./js/jquery-3.1.1.min.js"></script>
@@ -17,8 +18,8 @@
         <div class="slider-wrapper">
             <div class="slider-container">
 
-                <div class="slider" ng-style="{'left': slider.leftPos + '%'}" swipeable slider="slider">
-                    <div ng-repeat="image in slider.images"  ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image">
+                <div class="slider" ng-style="{'left': slider.leftPos + '%'}">
+                    <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image" ng-swipe-right="scrollRight()">
                     </div>
                 </div>
                 <div class="bullets-container">
@@ -26,11 +27,19 @@
 
                     </div>
                 </div>
+                <div class="slider-nav-container">
+                    <div class="slider-nav right"></div>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <div class="slider-nav left"></div>
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </div>
+
             </div>
         </div>
 
         <div class="controls">
             <div class="control-buttons-container">
+                {{dupa}}
             </div>
 
         </div>

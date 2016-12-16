@@ -1,1 +1,1 @@
-var app = angular.module("sliderApp",[]);
+var app = angular.module("sliderApp",['ngTouch']);

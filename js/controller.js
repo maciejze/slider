@@ -4,7 +4,6 @@ app.controller("mainController", function($scope) {
             leftPos: 0
         }
 
-
         $scope.scrollRight = function() {
             $scope.slider.leftPos -= 100;
         }
@@ -22,32 +21,32 @@ app.controller("mainController", function($scope) {
 
         }
     })
-    .directive("swipeable", function() {
-        return {
-            scope: {
-                slider: "=slider",
-            },
-            link: function(scope, element, attrs) {
-                var touchStartPos = 0;
-                var touchCurrentPos = 0;
-                var sliderElement = $(element);
-                sliderElement.on('touchstart', function(event) {
-                    touchStartPos = event.originalEvent.touches[0].pageX;
-
-                })
-                sliderElement.on('touchmove', function(event) {
-                    touchCurrentPos = event.originalEvent.touches[0].pageX;
-                    scope.slider.leftPos += ((touchCurrentPos - touchStartPos)/sliderElement[0].clientWidth*15);
-                    scope.$apply();
-                })
-                sliderElement.on('touchend', function(event) {
-
-                    if(scope.slider.leftPos.toFixed()%100 < -20){
-                      scope.slider.leftPos -= (scope.slider.leftPos % 100);
-                      console.log(scope.slider.leftPos);
-                      scope.$apply();
-                    }
-                })
-            }
-        }
-    });
+    // .directive("swipeable", function() {
+    //     return {
+    //         scope: {
+    //             slider: "=slider",
+    //         },
+    //         link: function(scope, element, attrs) {
+    //             var touchStartPos = 0;
+    //             var touchCurrentPos = 0;
+    //             var sliderElement = $(element);
+    //             sliderElement.on('touchstart', function(event) {
+    //                 touchStartPos = event.originalEvent.touches[0].pageX;
+    //
+    //             })
+    //             sliderElement.on('touchmove', function(event) {
+    //                 touchCurrentPos = event.originalEvent.touches[0].pageX;
+    //                 scope.slider.leftPos += ((touchCurrentPos - touchStartPos)/sliderElement[0].clientWidth*15);
+    //                 scope.$apply();
+    //             })
+    //             sliderElement.on('touchend', function(event) {
+    //
+    //                 if(scope.slider.leftPos.toFixed()%100 < -20){
+    //                   scope.slider.leftPos -= (scope.slider.leftPos % 100);
+    //                   console.log(scope.slider.leftPos);
+    //                   scope.$apply();
+    //                 }
+    //             })
+    //         }
+    //     }
+    // });

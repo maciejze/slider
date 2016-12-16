@@ -5,29 +5,33 @@ body {
     margin: 0px;
     margin-right: 5px;
 }
-.slider-wrapper{
-  height: 400px;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
-  position: relative;
-  border: white 5px solid;
-  border-radius: 4px;
-  margin-top: 20px;
+
+.slider-wrapper {
+    height: 400px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    position: relative;
+    border: white 5px solid;
+    border-radius: 4px;
+    margin-top: 20px;
 }
+
 .slider-container {
-  width:100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
+
 .slider {
     list-style-type: none;
     width: 100%;
     height: 100%;
     white-space: nowrap;
     position: absolute;
-    transition: left 1s;
+    transition: left 1s linear;
+    z-index: 2;
 }
 
 .slider-image {
@@ -44,8 +48,8 @@ body {
 }
 
 .cotrol-buttons-container {
-  color:white;
-  font-size: 20px;
+    color: white;
+    font-size: 20px;
 }
 
 .bullets-container {
@@ -53,6 +57,7 @@ body {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 5;
 }
 
 .bullet {
@@ -62,6 +67,7 @@ body {
     border-radius: 50%;
     display: inline-block;
     margin: 5px;
+    cursor: pointer;
 }
 
 .bullet.active {
@@ -70,6 +76,63 @@ body {
     width: 9px;
     height: 9px;
 }
+
+.slider-nav {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    z-index: 6
+}
+
+.slider-nav.right {
+    right: 0;
+    background: linear-gradient(to left, black, transparent);
+    opacity: 0.4;
+    z-index: 7;
+}
+
+.slider-nav.left {
+    left: 0;
+    background: linear-gradient(to right, black, transparent);
+    opacity: 0.4;
+    z-index: 7;
+}
+
+.slider-nav-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 4;
+}
+
+.slider-nav-container:hover>.slider-nav, .slider-nav:hover, .slider-nav-container:hover>.slider-nav>.fa {
+    visibility: visible;
+}
+
+.slider-nav-container>i.fa {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    color: white;
+    transform: translateY(-50%);
+    z-index: 8;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.slider-nav-container>i.fa-chevron-right {
+    right: 15px;
+}
+.slider-nav-container>i.fa-chevron-left {
+    left: 15px;
+}
+
+
 
 @media (max-width:1024px) {
     .slider-wrapper {
