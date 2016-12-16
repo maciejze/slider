@@ -24,16 +24,16 @@
                 </div>
                 <div class="bullets-container">
                     <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': isActive($index) }" ng-click="scrollTo($index)">
-
                     </div>
                 </div>
                 <div class="slider-nav-container">
-                    <div class="slider-nav right"></div>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <div class="slider-nav left"></div>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <div class="slider-nav right" ng-click="scrollRight()">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="slider-nav left" ng-click="scrollLeft()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
                 </div>
-
             </div>
         </div>
 

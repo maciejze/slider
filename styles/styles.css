@@ -30,7 +30,7 @@ body {
     height: 100%;
     white-space: nowrap;
     position: absolute;
-    transition: left 1s linear;
+    transition: left 1s;
     z-index: 2;
 }
 
@@ -91,15 +91,13 @@ body {
 
 .slider-nav.right {
     right: 0;
-    background: linear-gradient(to left, black, transparent);
-    opacity: 0.4;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
     z-index: 7;
 }
 
 .slider-nav.left {
     left: 0;
-    background: linear-gradient(to right, black, transparent);
-    opacity: 0.4;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
     z-index: 7;
 }
 
@@ -110,11 +108,11 @@ body {
     z-index: 4;
 }
 
-.slider-nav-container:hover>.slider-nav, .slider-nav:hover, .slider-nav-container:hover>.slider-nav>.fa {
+.slider-nav-container:hover>.slider-nav, .slider-nav:hover{
     visibility: visible;
 }
 
-.slider-nav-container>i.fa {
+.slider-nav-container>.slider-nav>i.fa {
     font-size: 30px;
     position: absolute;
     top: 50%;
@@ -122,13 +120,12 @@ body {
     transform: translateY(-50%);
     z-index: 8;
     cursor: pointer;
-    visibility: hidden;
 }
 
-.slider-nav-container>i.fa-chevron-right {
+.slider-nav-container>.slider-nav>i.fa-chevron-right {
     right: 15px;
 }
-.slider-nav-container>i.fa-chevron-left {
+.slider-nav-container>.slider-nav>i.fa-chevron-left {
     left: 15px;
 }
 
