@@ -2,8 +2,8 @@ app.controller("mainController", function($scope, $interval) {
     // Slider constructor and methods
     function Slider(config) {
         this.images = config.images;
-        if (config.interval === undefined) config.interval = 5000;
-        if (config.autoPlay) this.play(config.interval);
+        if (config.intervalTime === undefined) this.intervalTime = 5000;
+        if (config.autoPlay) this.play();
         this.leftPos = 0;
     }
     Slider.prototype = {
@@ -13,12 +13,11 @@ app.controller("mainController", function($scope, $interval) {
         scrollRight: function() {
             this.leftPos -= 100;
         },
-        play: function(interval) {
+        play: function() {
             self = this;
-            if(interval === undefined) interval = 5000;
             self.interval = $interval(function() {
                 self.scrollRight()
-            }, interval)
+            }, self.intervalTime)
         },
         stop: function() {
           self = this;
@@ -30,19 +29,22 @@ app.controller("mainController", function($scope, $interval) {
         },
         activeBullet: function(index) {
             self = this;
-            return Math.floor(Math.abs(self.leftPos / 100)) === index;
+            return this.activeImage() === index;
+        },
+        activeImage: function() {
+          self = this;
+          return Math.floor(Math.abs(self.leftPos / 100));
         }
     }
-
 
     //Slider initialization
     var config = {
         images: ['photo1.jpeg', 'photo2.jpeg', 'photo3.jpeg', 'photo4.jpeg', 'photo5.jpeg'],
-        //autoPlay: true,
-        //interval: 2000
     }
     $scope.slider = new Slider(config);
 
-
-
+}).directive("swipeLeft",function(){
+  return{
+    link:function(scope, element, attrs);
+  }
 })

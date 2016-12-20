@@ -9,40 +9,42 @@
     <script src="./js/app.js"></script>
     <script src="./js/controller.js"></script>
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+
 </head>
 
 <body ng-app="sliderApp">
     <div ng-controller="mainController">
         <div class="slider-wrapper">
-            <div class="slider-container">
-
-                <div class="slider" ng-style="{'left': slider.leftPos + '%'}">
-                    <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image">
-                    </div>
-
-                </div>
-                <div class="bullets-container">
-                    <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': slider.activeBullet($index) }" ng-click="slider.scrollTo($index)">
-                    </div>
-                </div>
-                <div class="slider-nav-container">
-                    <div class="slider-nav right" ng-click="slider.scrollRight()">
-                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="slider-nav left" ng-click="slider.scrollLeft()">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </div>
+            <div class="slider" ng-style="{'left': slider.leftPos + '%'}">
+                <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image">
                 </div>
             </div>
+            <div class="slider-counter">
+              <span>{{slider.activeImage() + 1}} / {{slider.images.length}}</span>
+            </div>
+            <div class="bullets-container">
+                <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': slider.activeBullet($index) }" ng-click="slider.scrollTo($index)">
+                </div>
+            </div>
+            <div class="slider-nav-container">
+                <div class="slider-nav right" ng-click="slider.scrollRight()">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+                <div class="slider-nav left" ng-click="slider.scrollLeft()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </div>
+            </div>
+
         </div>
 
         <div class="controls">
             <div class="control-buttons-wrapper">
-                <button ng-click="slider.play(interval)"  active class="play" ng-class="{'active' : slider.interval !== undefined}" ><span>Play</span></button>
+                <button ng-click="slider.play(interval)" active class="play" ng-class="{'active' : slider.interval !== undefined}"><span>Play</span></button>
 
                 <button ng-click="slider.stop()" class="stop" ng-class="{'active' : slider.interval === undefined}"><span>Stop</span></button>
-                <input ng-disabled="slider.interval !== undefined" type="number" ng-model="interval" ng-model-options="{updateOn:'blur'}" />
+                <input ng-disabled="slider.interval !== undefined"  type="number" ng-model="slider.intervalTime" ng-model-options="{updateOn:'blur'}" />
+                <span>ms</span>
             </div>
 
         </div>
