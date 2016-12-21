@@ -155,7 +155,9 @@ body {
     position: relative;
     cursor: pointer;
 }
-
+.control-buttons-wrapper>button:disabled{
+  cursor:not-allowed;
+}
 .control-buttons-wrapper>button::before {
     content: "";
     position: absolute;
@@ -195,7 +197,11 @@ body {
     font-family: "New Comic";
     padding: 1px 10px;
 }
-
+.control-buttons-wrapper>input[disabled]{
+   cursor: not-allowed;
+   color:grey;
+   border-color:grey;
+}
 .control-buttons-wrapper>span {
     font-family: "New Comic";
     font-size: 20px;
@@ -218,8 +224,5 @@ body {
         margin-left: 0;
         margin-right: 0;
         border-width: 2px;
-    }
-    .slider-nav {
-        visibility: visible;
     }
 }

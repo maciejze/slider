@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Slider</title>
     <script src="https://use.fontawesome.com/df74664aa7.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/angular.js" type="text/javascript"></script>
     <script src="./js/app.js"></script>
     <script src="./js/controller.js"></script>
@@ -16,18 +17,18 @@
 <body ng-app="sliderApp">
     <div ng-controller="mainController">
         <div class="slider-wrapper">
-            <div class="slider" ng-style="{'left': slider.leftPos + '%'}">
-                <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image">
+            <div class="slider" ng-style="{'left': slider.leftPos + '%'}" swipeable slider="slider">
+                <div ng-repeat="image in slider.images" ng-style="{'background-image':'url(./images/' + image + ')'}" class="slider-image" >
                 </div>
             </div>
             <div class="slider-counter">
-              <span>{{slider.activeImage() + 1}} / {{slider.images.length}}</span>
+              <span>{{slider.activeImageIndex() + 1}} / {{slider.images.length}}</span>
             </div>
             <div class="bullets-container">
                 <div class="bullet" ng-repeat="image in slider.images" ng-class="{'active': slider.activeBullet($index) }" ng-click="slider.scrollTo($index)">
                 </div>
             </div>
-            <div class="slider-nav-container">
+            <div class="slider-nav-container" swipeable slider="slider">
                 <div class="slider-nav right" ng-click="slider.scrollRight()">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
@@ -40,9 +41,9 @@
 
         <div class="controls">
             <div class="control-buttons-wrapper">
-                <button ng-click="slider.play(interval)" active class="play" ng-class="{'active' : slider.interval !== undefined}"><span>Play</span></button>
+                <button ng-click="slider.play(interval)" active class="play" ng-disabled="slider.interval !== undefined" ng-class="{'active' : slider.interval !== undefined}"><span>Play</span></button>
 
-                <button ng-click="slider.stop()" class="stop" ng-class="{'active' : slider.interval === undefined}"><span>Stop</span></button>
+                <button ng-click="slider.stop()" class="stop" ng-disabled="slider.interval === undefined" ng-class="{'active' : slider.interval === undefined}"><span>Stop</span></button>
                 <input ng-disabled="slider.interval !== undefined"  type="number" ng-model="slider.intervalTime" ng-model-options="{updateOn:'blur'}" />
                 <span>ms</span>
             </div>
