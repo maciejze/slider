@@ -4,9 +4,10 @@
 }
 
 body {
-    background: #44A08D;
-    background: -webkit-linear-gradient(to left, #44A08D, #093637);
-    background: linear-gradient(to left, #44A08D, #093637);
+    //background: #44A08D;
+    //background: -webkit-linear-gradient(to left, #44A08D, #093637);
+    //background: linear-gradient(to left, #44A08D, #093637);
+    background-color: #A6793C;
     margin: 0px;
     margin-right: 5px;
 }
@@ -199,8 +200,8 @@ body {
 }
 .control-buttons-wrapper>input[disabled]{
    cursor: not-allowed;
-   color:grey;
-   border-color:grey;
+   color:white;
+   border-color:transparent;
 }
 .control-buttons-wrapper>span {
     font-family: "New Comic";
